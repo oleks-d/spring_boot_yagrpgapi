@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Hello Hero!</title>
+</head>
+<body>
+<h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+<img id="hero" src="../img/hero1.png" hidden="true"/>
+<img id="atlas" src="../img/dg_classm32.gif" hidden="true"/>
+<canvas id="tutorial" width="150" height="150">
+
+</canvas>
+<button onclick="show()">CCC</button>
+
+<script>
+function show(){
+    var atlasImage = document.getElementById("atlas");
+    const canvas = document.getElementById("tutorial");
+const ctx = canvas.getContext("2d");
+//ctx.fillRect(1,1,100,100);
+    ctx.drawImage(atlasImage, 0, 0, 32, 32, 0, 0, 32, 32);
+    ctx.transform(3,0,0,3,0,0);
+}
+</script>
+</body>
+</html>
